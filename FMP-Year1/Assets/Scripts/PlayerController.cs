@@ -13,6 +13,11 @@ public class PlayerController : MonoBehaviour
     public float timeLimit;
     public float timer;
 
+    [Header("Shooting")]
+    public bool canShoot;
+
+    RaycastHit2D hit;
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +28,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // hit = Physics2D.Raycast(transform.position, -transform.up, groundDistance, layerMask);
+        hit = Physics2D.Raycast(transform.position, -transform.up, groundDistance, layerMask);
         Debug.DrawRay(transform.position, -transform.up * groundDistance, Color.yellow);
 
         time();
@@ -33,11 +38,11 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Mouse0))
         {
-            // throw spear towards mouse position
+            Movement(); // throw spear towards mouse position
 
             if (timer == 0)
             {
-                Movement(); // When the timer reaches 0 the player will be launched towards the spears position
+                 // When the timer reaches 0 the player will be launched towards the spears position
             }
             else 
             {
@@ -48,9 +53,9 @@ public class PlayerController : MonoBehaviour
 
     void Movement()
     {
-       // if (Input.GetKeyUp(KeyCode.Mouse0))
-       // {
-            // let go of spear
-       // }
+        if (hit.collider)
+        {
+            canShoot = true;
+        }
     }
 }
