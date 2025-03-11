@@ -13,12 +13,11 @@ public class PlayerController : MonoBehaviour
     public bool isFacingRight;
     float inputs;
 
-    [Header("Timer")]
-    public float timeLimit;
-    public float timer;
-
-    [Header("Shooting")]
-    public bool canShoot;
+    [Header("Spear")]
+    public Transform shootingPoint;
+    public Transform crosshairPos;
+    public GameObject spear;
+    Vector3 throwVector;
 
     private float coyoteTime = 0.2f;
     private float coyoteTimeCounter;
@@ -40,16 +39,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        inputs = Input.GetAxisRaw("Horizontal");
-        rb.velocity = new UnityEngine.Vector2(inputs * moveSpeed, rb.velocity.y);
-
-        hit = Physics2D.Raycast(transform.position, -transform.up, groundDistance, layerMask);
-        Debug.DrawRay(transform.position, -transform.up * groundDistance, Color.yellow);
-
+        Movement();
         Jump();
         jumpBuffer();
         Coyote();
-        Spear();
+        SpearHandler();
         MovementDirection();
     }
 
@@ -94,29 +88,31 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Spear()
+    void SpearHandler()
     {
         if (Input.GetKey(KeyCode.Mouse0))
         {
-            Movement(); // throw spear towards mouse position
+            shootingPoint.transform.position = crosshairPos.transform.position;
 
-            if (timer == 0)
-            {
-                 // When the timer reaches 0 the player will be launched towards the spears position
-            }
-            else 
-            {
-                timer -= Time.deltaTime;
-            }
+            Vector2 distance = crosshairPos.transform.position - transform.position;
+            throwVector = -distance.normalized * 100;
+        }
+
+        if (Input.GetKeyUp(KeyCode.Mouse0))
+        {
+            Instantiate(spear, transform.position, transform.rotation);
+            
+            spear.GetComponent<Rigidbody2D>().AddForce(throwVector);
         }
     }
 
     void Movement()
     {
-        if (hit.collider)
-        {
-            canShoot = true;
-        }
+        inputs = Input.GetAxisRaw("Horizontal");
+        rb.velocity = new UnityEngine.Vector2(inputs * moveSpeed, rb.velocity.y);
+
+        hit = Physics2D.Raycast(transform.position, -transform.up, groundDistance, layerMask);
+        Debug.DrawRay(transform.position, -transform.up * groundDistance, Color.yellow);        
     }
 
     
