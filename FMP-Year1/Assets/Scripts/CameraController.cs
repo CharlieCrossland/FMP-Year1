@@ -34,7 +34,7 @@ public class CameraController : MonoBehaviour
     void FixedUpdate()
     {
         // camera offset and follow player
-        Vector3 offset = new Vector3(2,1,-10);
+        Vector3 offset = new Vector3(0, 0, -10);
         transform.position = Vector3.Lerp(transform.position, Maintarget.position + offset, followSpeed * Time.deltaTime);
 
 
