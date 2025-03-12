@@ -90,19 +90,17 @@ public class PlayerController : MonoBehaviour
 
     void SpearHandler()
     {
-        if (Input.GetKey(KeyCode.Mouse0))
-        {
-            shootingPoint.transform.position = crosshairPos.transform.position;
+        // if (Input.GetKey(KeyCode.Mouse0))
+        // {
+        //     shootingPoint.transform.position = crosshairPos.transform.position;
 
-            Vector2 distance = crosshairPos.transform.position - transform.position;
-            throwVector = -distance.normalized * 100;
-        }
+        //     Vector2 distance = shootingPoint.transform.position - transform.position;
+        //     throwVector = -distance.normalized * 100;
+        // }
 
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
             Instantiate(spear, transform.position, transform.rotation);
-            
-            spear.GetComponent<Rigidbody2D>().AddForce(throwVector);
         }
     }
 

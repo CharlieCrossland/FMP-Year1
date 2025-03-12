@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7227757984587926261}
-  - component: {fileID: 270420791225787652}
   - component: {fileID: -334795651092031094}
   - component: {fileID: 1455006645623662626}
+  - component: {fileID: -3490632139516750362}
   m_Layer: 0
   m_Name: Spear
   m_TagString: Untagged
@@ -36,19 +36,6 @@ Transform:
   - {fileID: 1508777488513613611}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &270420791225787652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 222706968819714274}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dd7d5c18b12cd445a85f153cb0a0a8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  crosshairPos: {fileID: 6939819221441557270, guid: e11e80a5990f1df40846ac8af9ee9a64, type: 3}
 --- !u!61 &-334795651092031094
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -120,7 +107,19 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
+--- !u!114 &-3490632139516750362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 222706968819714274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dd7d5c18b12cd445a85f153cb0a0a8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1755085223526739504
 GameObject:
   m_ObjectHideFlags: 0
