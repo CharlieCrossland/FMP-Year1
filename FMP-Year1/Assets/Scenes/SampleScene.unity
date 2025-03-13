@@ -505,6 +505,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4846641179307125213, guid: 3989b5a97862b3b429cd161199cbeb3d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5775352323186351365, guid: 3989b5a97862b3b429cd161199cbeb3d, type: 3}
       propertyPath: m_Name
       value: PlayerContainer

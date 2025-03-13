@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class Crosshair : MonoBehaviour
 {
-    [Header("Distance")]
-    public Transform Player;
-    public Transform maxDist;
-
     [Header("Mouse")]
     private Vector3 mousePosition;
     public float moveSpeed;

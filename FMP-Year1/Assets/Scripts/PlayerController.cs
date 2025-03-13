@@ -14,10 +14,7 @@ public class PlayerController : MonoBehaviour
     float inputs;
 
     [Header("Spear")]
-    public Transform shootingPoint;
-    public Transform crosshairPos;
     public GameObject spear;
-    Vector3 throwVector;
 
     private float coyoteTime = 0.2f;
     private float coyoteTimeCounter;
@@ -90,14 +87,6 @@ public class PlayerController : MonoBehaviour
 
     void SpearHandler()
     {
-        // if (Input.GetKey(KeyCode.Mouse0))
-        // {
-        //     shootingPoint.transform.position = crosshairPos.transform.position;
-
-        //     Vector2 distance = shootingPoint.transform.position - transform.position;
-        //     throwVector = -distance.normalized * 100;
-        // }
-
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
             Instantiate(spear, transform.position, transform.rotation);

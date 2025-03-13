@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -334795651092031094}
   - component: {fileID: 1455006645623662626}
   - component: {fileID: -3490632139516750362}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Spear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,6 +120,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dd7d5c18b12cd445a85f153cb0a0a8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  groundDistance: 1.9
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  timer: 0
+  timeLimit: 2
 --- !u!1 &1755085223526739504
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,7 +136,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1508777488513613611}
   - component: {fileID: 426040430078631840}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +152,7 @@ Transform:
   m_GameObject: {fileID: 1755085223526739504}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00329, y: 0, z: -0.14962418}
+  m_LocalPosition: {x: -0.00329, y: 0, z: 0}
   m_LocalScale: {x: 0.79931575, y: 0.04344274, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -214,7 +220,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1222919399127770408}
   - component: {fileID: 4196660316987447998}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -230,7 +236,7 @@ Transform:
   m_GameObject: {fileID: 8431675355448489127}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.51811314, y: 0, z: -0.14962418}
+  m_LocalPosition: {x: 0.51811314, y: 0, z: 0}
   m_LocalScale: {x: 0.1458016, y: 0.42233032, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
