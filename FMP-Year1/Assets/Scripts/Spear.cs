@@ -8,24 +8,21 @@ public class Spear : MonoBehaviour
     public float groundDistance;
     public LayerMask layerMask;
 
-    [Header("Timer")]
-    public float timer;
-    public float timeLimit;
-
     private Vector3 mousePosition;
     Vector3 throwVector;
     Vector3 shootingPoint;
     RaycastHit2D hit;
 
+    [SerializeField] float initialAngle;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        timer = timeLimit;
-
         GetSP();
 
         Vector2 distance = shootingPoint - transform.position; // calculates distance
-        throwVector = distance.normalized * 10;
+        throwVector = distance.normalized * 25;
 
         pointToSP();
     }
@@ -36,15 +33,6 @@ public class Spear : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity = throwVector;
 
         hitWall();
-
-        if (timer <= 0)
-        {
-            Gravity();
-        }
-        else
-        {
-            timer -= Time.deltaTime;
-        }
     }
 
     void GetSP() // finds where mouse is and places vector sp in pos
@@ -66,9 +54,42 @@ public class Spear : MonoBehaviour
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 
-    void Gravity()
+    void drop() // DOES NOT WORK
     {
-        GetComponent<Rigidbody2D>().freezeRotation = false;
+        Vector3 rotateValue = shootingPoint - transform.position;
+        Quaternion lookRotation = Quaternion.LookRotation(rotateValue);
+        transform.rotation = lookRotation;
+
+        // gravity for the spear to drop as it is in the air
+        var rigid = GetComponent<Rigidbody2D>();
+
+        Vector3 p = shootingPoint;
+
+        float gravity = Physics.gravity.magnitude;
+        // selected angle in radians
+        float angle = initialAngle * Mathf.Deg2Rad;
+
+        // positions of this object and the target on the same plane
+        Vector3 planarTarget = new Vector3(p.x, 0, p.z);
+        Vector3 planarPostion = new Vector3(transform.position.x, 0, transform.position.z);
+
+        // planar distance between objects                                                                        // DOES NOT WORK
+        float distance = Vector3.Distance(planarTarget, planarPostion);
+        // distance along the y axis between objects
+        float yOffset = transform.position.y - p.y;
+
+        float initialVelocity = (1 / Mathf.Cos(angle)) * Mathf.Sqrt((0.5f * gravity * Mathf.Pow(distance, 2)) / (distance * Mathf.Tan(angle) + yOffset));
+
+        Vector3 velocity = new Vector3(0, initialVelocity * Mathf.Sin(angle), initialVelocity * Mathf.Cos(angle));
+
+        // rotates the velocity to match the direction between the two objects
+        float angleBetweenObjects = Vector3.Angle(Vector3.forward, planarTarget - planarPostion) * (p.x > transform.position.x ? 1 : -1);
+        Vector3 finalVelocity = Quaternion.AngleAxis(angleBetweenObjects, Vector3.up) * velocity;
+
+        // when firing
+        rigid.velocity = finalVelocity;
+
+        // DOES NOT WORK
     }
 
     void hitWall()

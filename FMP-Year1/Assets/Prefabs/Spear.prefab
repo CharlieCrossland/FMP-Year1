@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.8025589, y: -7.437484, z: -0.0035735}
-  m_LocalScale: {x: 2.334495, y: 1.382565, z: 1.8132}
+  m_LocalScale: {x: 1.9899324, y: 2.3816485, z: 1.1240572}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1222919399127770408}
@@ -107,7 +107,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!114 &-3490632139516750362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,8 +124,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 1
-  timer: 0
-  timeLimit: 2
+  initialAngle: 0
 --- !u!1 &1755085223526739504
 GameObject:
   m_ObjectHideFlags: 0
