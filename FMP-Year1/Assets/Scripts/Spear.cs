@@ -88,6 +88,7 @@ public class Spear : MonoBehaviour
 
         // when firing
         rigid.velocity = finalVelocity;
+        Debug.Log(finalVelocity);
 
         // DOES NOT WORK
     }
