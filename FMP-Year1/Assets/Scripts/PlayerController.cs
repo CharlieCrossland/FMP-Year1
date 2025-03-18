@@ -5,18 +5,22 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Main")]
-    public Rigidbody2D rb;
     public float groundDistance;
     public float moveSpeed;
     public float jumpForce;
     public LayerMask layerMask;
     public bool isFacingRight;
+    public bool dead;
     public bool onSpear;
     float inputs;
+
+    [Header("Hitbox")]
+    public Rigidbody2D rb;
 
     [Header("Spear")]
     public GameObject spear;
     public Rigidbody2D spearRB;
+
 
     private float coyoteTime = 0.2f;
     private float coyoteTimeCounter;
@@ -44,6 +48,13 @@ public class PlayerController : MonoBehaviour
 
             Debug.Log(rb.position);
             Debug.Log(spearRB.position);
+        }
+
+        if (dead == true)
+        {
+            transform.position = startPos;
+
+            dead = false;
         }
 
 
@@ -130,5 +141,10 @@ public class PlayerController : MonoBehaviour
     {
         isFacingRight = !isFacingRight;
         transform.Rotate(0f, 180f, 0f);
-    } 
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+
+    }
 }

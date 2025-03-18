@@ -24,7 +24,7 @@ public class Spear : MonoBehaviour
         Vector2 distance = shootingPoint - transform.position; // calculates distance
         throwVector = distance.normalized * 25;
 
-        // pointToSP();
+        pointToSP();
     }
 
     // Update is called once per frame
@@ -33,11 +33,6 @@ public class Spear : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity = throwVector;
 
         hitWall();
-
-        if (Input.GetKey(KeyCode.Mouse0))
-        {
-            pointToSP();
-        }
     }
 
     void GetSP() // finds where mouse is and places vector sp in pos
