@@ -410,9 +410,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   isFacingRight: 0
-  shootingPoint: {fileID: 8086018382028944753}
-  crosshairPos: {fileID: 4846641179307125213}
   spear: {fileID: 222706968819714274, guid: e67ad3bb62d807f4aad647e610a2094e, type: 3}
+  spearRB: {fileID: 1455006645623662626, guid: e67ad3bb62d807f4aad647e610a2094e, type: 3}
 --- !u!1 &7765253438799485721
 GameObject:
   m_ObjectHideFlags: 0

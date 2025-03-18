@@ -11,10 +11,12 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
     public LayerMask layerMask;
     public bool isFacingRight;
+    public bool onSpear;
     float inputs;
 
     [Header("Spear")]
     public GameObject spear;
+    public Rigidbody2D spearRB;
 
     private float coyoteTime = 0.2f;
     private float coyoteTimeCounter;
@@ -36,6 +38,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (onSpear == true)
+        {
+            rb.position = spearRB.position;
+
+            Debug.Log(rb.position);
+            Debug.Log(spearRB.position);
+        }
+
+
         Movement();
         Jump();
         jumpBuffer();
