@@ -19,6 +19,8 @@ public class Spear : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Destroy(gameObject, 1.75f);
+
         GetSP();
 
         Vector2 distance = shootingPoint - transform.position; // calculates distance
@@ -102,6 +104,8 @@ public class Spear : MonoBehaviour
         {
             GetComponent<Rigidbody2D>().freezeRotation = true;
             GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
+
+            Destroy(gameObject, 0.7f);
         }
     }
 }

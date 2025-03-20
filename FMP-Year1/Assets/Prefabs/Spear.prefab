@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -3490632139516750362}
   m_Layer: 2
   m_Name: Spear
-  m_TagString: Untagged
+  m_TagString: Spear
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,7 +97,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 0c6e99752b680bb44af6f93f928afa8f, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -107,7 +107,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &-3490632139516750362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dd7d5c18b12cd445a85f153cb0a0a8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundDistance: 1.9
+  groundDistance: 1.65
   layerMask:
     serializedVersion: 2
     m_Bits: 1
