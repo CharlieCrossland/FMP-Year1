@@ -33,7 +33,10 @@ public class Spear : MonoBehaviour
     void Update()
     {
         GetComponent<Rigidbody2D>().velocity = throwVector;
+    }
 
+    void FixedUpdate()
+    {
         hitWall();
     }
 

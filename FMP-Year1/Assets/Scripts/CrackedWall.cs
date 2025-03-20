@@ -5,6 +5,7 @@ using UnityEngine;
 public class CrackedWall : MonoBehaviour
 {
     public Rigidbody2D rb;
+    public Collider2D cd;
 
     // Start is called before the first frame update
     void Start()
@@ -15,7 +16,7 @@ public class CrackedWall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -24,6 +25,8 @@ public class CrackedWall : MonoBehaviour
         {
             rb.constraints = RigidbodyConstraints2D.FreezePositionX;
             rb.freezeRotation = true;
+
+            Destroy(cd);
         }
     }
 }

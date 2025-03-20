@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -20,7 +21,8 @@ public class PlayerController : MonoBehaviour
     [Header("Spear")]
     public GameObject spear;
     public Rigidbody2D spearRB;
-
+    public float cd;
+    public float maxCD;
 
     private float coyoteTime = 0.2f;
     private float coyoteTimeCounter;
@@ -109,9 +111,14 @@ public class PlayerController : MonoBehaviour
 
     void SpearHandler()
     {
-        if (Input.GetKeyUp(KeyCode.Mouse0))
+        if (Input.GetKeyUp(KeyCode.Mouse0) && cd < 0)
         {
             Instantiate(spear, transform.position, transform.rotation);
+            cd = maxCD;
+        }
+        else if (hit.collider)
+        {
+            cd -= Time.deltaTime;
         }
     }
 

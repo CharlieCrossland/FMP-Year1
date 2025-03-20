@@ -636,9 +636,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1597179820477576844, guid: aa494e7c24c11dd4db8aa9128dbe491f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2133464889323274194, guid: aa494e7c24c11dd4db8aa9128dbe491f, type: 3}
       propertyPath: m_Name
       value: TestSpike
+      objectReference: {fileID: 0}
+    - target: {fileID: 2133464889323274194, guid: aa494e7c24c11dd4db8aa9128dbe491f, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4517722421685651352, guid: aa494e7c24c11dd4db8aa9128dbe491f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -680,6 +688,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5551176805466716954, guid: aa494e7c24c11dd4db8aa9128dbe491f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -697,9 +709,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerContainer
       objectReference: {fileID: 0}
-    - target: {fileID: 7690569370752211903, guid: 3989b5a97862b3b429cd161199cbeb3d, type: 3}
-      propertyPath: m_TagString
-      value: Player
+    - target: {fileID: 7034619787211933681, guid: 3989b5a97862b3b429cd161199cbeb3d, type: 3}
+      propertyPath: maxCD
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 8949890462620040625, guid: 3989b5a97862b3b429cd161199cbeb3d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -794,13 +806,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5292774534361450523, guid: b31556705bfd7e946851461d34b43515, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: ab2c29a4344eed948af96276d8a84ef2, type: 2}
+    - target: {fileID: 2488359421437338560, guid: b31556705bfd7e946851461d34b43515, type: 3}
+      propertyPath: groundDistance
+      value: 2.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488359421437338560, guid: b31556705bfd7e946851461d34b43515, type: 3}
+      propertyPath: layerMask.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6626575054745712892, guid: b31556705bfd7e946851461d34b43515, type: 3}
       propertyPath: m_Name
       value: CrackedWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146234297423126329, guid: b31556705bfd7e946851461d34b43515, type: 3}
+      propertyPath: m_Size.y
+      value: 3.790382
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146234297423126329, guid: b31556705bfd7e946851461d34b43515, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.00832653
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
