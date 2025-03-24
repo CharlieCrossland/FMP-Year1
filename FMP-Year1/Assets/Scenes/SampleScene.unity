@@ -705,13 +705,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4749066870570836711, guid: 3989b5a97862b3b429cd161199cbeb3d, type: 3}
+      propertyPath: m_LinearDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749066870570836711, guid: 3989b5a97862b3b429cd161199cbeb3d, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 5775352323186351365, guid: 3989b5a97862b3b429cd161199cbeb3d, type: 3}
       propertyPath: m_Name
       value: PlayerContainer
       objectReference: {fileID: 0}
     - target: {fileID: 7034619787211933681, guid: 3989b5a97862b3b429cd161199cbeb3d, type: 3}
       propertyPath: maxCD
-      value: 0.25
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7034619787211933681, guid: 3989b5a97862b3b429cd161199cbeb3d, type: 3}
+      propertyPath: maxTimeOnS
+      value: 1.55
       objectReference: {fileID: 0}
     - target: {fileID: 8949890462620040625, guid: 3989b5a97862b3b429cd161199cbeb3d, type: 3}
       propertyPath: m_LocalPosition.x

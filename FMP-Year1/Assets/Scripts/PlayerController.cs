@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 
 public class PlayerController : MonoBehaviour
 {
@@ -23,6 +25,12 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D spearRB;
     public float cd;
     public float maxCD;
+    bool calculateDistance;
+    Vector3 throwVector;
+    Vector3 shootingPoint;
+    private Vector3 mousePosition;
+    public float maxTimeOnS;
+    public float TimeOnS;
 
     private float coyoteTime = 0.2f;
     private float coyoteTimeCounter;
@@ -39,19 +47,12 @@ public class PlayerController : MonoBehaviour
     {
         isFacingRight = true;
         startPos = transform.position;
+        TimeOnS = maxTimeOnS;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (onSpear == true)
-        {
-            rb.position = spearRB.position;
-
-            Debug.Log(rb.position);
-            Debug.Log(spearRB.position);
-        }
-
         if (dead == true)
         {
             transform.position = startPos;
@@ -59,13 +60,39 @@ public class PlayerController : MonoBehaviour
             dead = false;
         }
 
-
         Movement();
         Jump();
         jumpBuffer();
         Coyote();
         SpearHandler();
         MovementDirection();
+    }
+
+    void FixedUpdate()
+    {
+        if (onSpear)
+        {
+            if (calculateDistance)
+            {
+                TimeOnS = maxTimeOnS; // reset timer on spear
+
+                Vector2 distance = shootingPoint - transform.position; // calculates distance
+                throwVector = distance.normalized * 25;       
+
+                calculateDistance = false;         
+            }
+            
+            rb.velocity = throwVector;
+
+            if (TimeOnS <= 0)
+            {
+                onSpear = false;
+            }
+            else
+            {
+                TimeOnS -= Time.deltaTime;
+            }
+        }
     }
 
     void Jump()
@@ -82,6 +109,13 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
 
             coyoteTimeCounter = 0f;
+        }
+
+        if (Input.GetButtonUp("Jump") && onSpear)
+        {
+            onSpear = false;
+
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
     }
 
@@ -115,10 +149,25 @@ public class PlayerController : MonoBehaviour
         {
             Instantiate(spear, transform.position, transform.rotation);
             cd = maxCD;
+
+            mousePosition = Input.mousePosition;
+            shootingPoint = Camera.main.ScreenToWorldPoint(mousePosition);
+
+            onSpear = true;
+            calculateDistance = true;
         }
         else if (hit.collider)
         {
             cd -= Time.deltaTime;
+        }
+
+        if (Input.GetKeyUp(KeyCode.Mouse1) && cd < 0)
+        {
+            Instantiate(spear, transform.position, transform.rotation);
+            cd = maxCD;
+
+            mousePosition = Input.mousePosition;
+            shootingPoint = Camera.main.ScreenToWorldPoint(mousePosition);
         }
     }
 
