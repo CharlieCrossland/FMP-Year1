@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using JetBrains.Annotations;
+using Unity.VisualScripting;
+using UnityEditor.iOS;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
+using UnityEngine.Rendering;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public float groundDistance;
     public float moveSpeed;
     public float jumpForce;
+    public float spearForce;
     public LayerMask layerMask;
     public bool isFacingRight;
     public bool dead;
@@ -31,12 +35,16 @@ public class PlayerController : MonoBehaviour
     private Vector3 mousePosition;
     public float maxTimeOnS;
     public float TimeOnS;
+    public bool canShoot;
+    public int ammo;
 
     private float coyoteTime = 0.2f;
     private float coyoteTimeCounter;
 
     private float jumpBufferTime = 0.2f;
     private float jumpBufferCounter;
+
+    public float padForce;
 
     RaycastHit2D hit;
     Vector3 startPos;
@@ -110,13 +118,6 @@ public class PlayerController : MonoBehaviour
 
             coyoteTimeCounter = 0f;
         }
-
-        if (Input.GetButtonUp("Jump") && onSpear)
-        {
-            onSpear = false;
-
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-        }
     }
 
     void jumpBuffer()
@@ -145,7 +146,7 @@ public class PlayerController : MonoBehaviour
 
     void SpearHandler()
     {
-        if (Input.GetKeyUp(KeyCode.Mouse0) && cd < 0)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && ammo >= 0.1f) // left click to fly with spear
         {
             Instantiate(spear, transform.position, transform.rotation);
             cd = maxCD;
@@ -155,19 +156,37 @@ public class PlayerController : MonoBehaviour
 
             onSpear = true;
             calculateDistance = true;
+
+            ammo = ammo - 1;
         }
         else if (hit.collider)
         {
             cd -= Time.deltaTime;
         }
 
-        if (Input.GetKeyUp(KeyCode.Mouse1) && cd < 0)
+        if (cd <= 0) // should allow for use of spear twice in air
+        {
+            ammo = ammo + 1;
+
+            cd = maxCD;
+        }
+
+        if (ammo > 2) // stops ammo going above 2
+        {
+            ammo = 2;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Mouse1) && ammo >= 0.1f) // right click to shoot spear
         {
             Instantiate(spear, transform.position, transform.rotation);
             cd = maxCD;
 
-            mousePosition = Input.mousePosition;
-            shootingPoint = Camera.main.ScreenToWorldPoint(mousePosition);
+            ammo = ammo - 1;
+        }
+
+        if (Input.GetButtonDown("Jump") && onSpear == true) // jumps off spear
+        {
+            rb.velocity = new Vector2(rb.velocity.x, spearForce);
         }
     }
 
@@ -201,6 +220,13 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-
+        if (other.CompareTag("Crystal"))
+        {
+            ammo = ammo + 1;
+        }
+        if (other.CompareTag("JumpPad"))
+        {
+            rb.AddForce(transform.up * padForce, ForceMode2D.Impulse );
+        }
     }
 }

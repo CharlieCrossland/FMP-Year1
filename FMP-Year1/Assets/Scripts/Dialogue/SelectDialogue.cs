@@ -8,12 +8,15 @@ public class SelectDialogue : MonoBehaviour
     public TextMeshProUGUI textComp;
     public string[] lines;
     public float textSpeed;
+    public PlayerController pScript;
 
     private int index;
+    public bool active;
 
     // Start is called before the first frame update
     void Start()
     {
+        gameObject.SetActive(false);
         textComp.text = string.Empty;
         startDialogue();
     }
@@ -21,7 +24,18 @@ public class SelectDialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (active)
+        {
+            gameObject.SetActive(true);
+            pScript.enabled = false;
+        }
+        else 
+        {
+            gameObject.SetActive(false);
+            pScript.enabled = true;
+        }
+
+        if (Input.GetMouseButtonDown(0) && active == true)
         {
             if (textComp.text == lines[index])
             {
@@ -61,7 +75,7 @@ public class SelectDialogue : MonoBehaviour
         }
         else
         {
-            gameObject.SetActive(false);
+            active = false;
         }
     }
 }
