@@ -1,11 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
-using JetBrains.Annotations;
 using Unity.VisualScripting;
-using UnityEditor.iOS;
 using UnityEngine;
-using UnityEngine.Assertions.Must;
 using UnityEngine.Rendering;
 
 public class PlayerController : MonoBehaviour
@@ -220,9 +217,10 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Crystal"))
+        if (other.CompareTag("Crystal") && ammo != 2)
         {
             ammo = ammo + 1;
+            Destroy(other.gameObject);
         }
         if (other.CompareTag("JumpPad"))
         {
