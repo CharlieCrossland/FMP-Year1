@@ -100,7 +100,7 @@ public class Spear : MonoBehaviour
 
     void hitWall()
     {
-        hit = Physics2D.Raycast(transform.position, transform.right, groundDistance, layerMask);
+        hit = Physics2D.Raycast(transform.position, transform.right, groundDistance, layerMask); // Raycast changing length based on direction
         Debug.DrawRay(transform.position, transform.right * groundDistance, Color.yellow);
 
         if (hit.collider)
