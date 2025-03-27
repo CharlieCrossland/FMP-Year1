@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,7 +13,6 @@ public class PlayerController : MonoBehaviour
     public float groundDistance;
     public float moveSpeed;
     public float jumpForce;
-    public float spearForce;
     public LayerMask layerMask;
     public bool isFacingRight;
     public bool dead;
@@ -23,24 +24,31 @@ public class PlayerController : MonoBehaviour
 
     [Header("Spear")]
     public GameObject spear;
-    public Rigidbody2D spearRB;
     public float cd;
     public float maxCD;
+    public Slider cdSlider;
+    public GameObject sliderOBJ;
+    private bool stopCD;
     bool calculateDistance;
     Vector3 throwVector;
     Vector3 shootingPoint;
     private Vector3 mousePosition;
     public float maxTimeOnS;
     public float TimeOnS;
-    public bool canShoot;
     public int ammo;
 
+    [Header("Quiver")]
+    public GameObject spear1;
+    public GameObject spear2;
+
+    [Header("Jumping")]
     private float coyoteTime = 0.2f;
     private float coyoteTimeCounter;
 
     private float jumpBufferTime = 0.2f;
     private float jumpBufferCounter;
 
+    [Header("JumpPad")]
     public float padForce;
 
     RaycastHit2D hit;
@@ -70,6 +78,8 @@ public class PlayerController : MonoBehaviour
         jumpBuffer();
         Coyote();
         SpearHandler();
+        Quiver();
+        Cooldown();
         MovementDirection();
     }
 
@@ -96,6 +106,14 @@ public class PlayerController : MonoBehaviour
             else
             {
                 TimeOnS -= Time.deltaTime;
+            }
+
+            if (!hit.collider)
+            {
+                if (hit.collider)
+                {
+                    onSpear = false;
+                }
             }
         }
     }
@@ -156,7 +174,7 @@ public class PlayerController : MonoBehaviour
 
             ammo = ammo - 1;
         }
-        else if (hit.collider)
+        else if (hit.collider && !stopCD)
         {
             cd -= Time.deltaTime;
         }
@@ -166,6 +184,15 @@ public class PlayerController : MonoBehaviour
             ammo = ammo + 1;
 
             cd = maxCD;
+        }
+
+        if (cd >= 0 && ammo == 2)
+        {
+            stopCD = true;
+        }
+        else
+        {
+            stopCD = false;
         }
 
         if (ammo > 2) // stops ammo going above 2
@@ -180,10 +207,40 @@ public class PlayerController : MonoBehaviour
 
             ammo = ammo - 1;
         }
+    }
 
-        if (Input.GetButtonDown("Jump") && onSpear == true) // jumps off spear
+    void Quiver()
+    {
+        if (ammo <= 0)
         {
-            rb.velocity = new Vector2(rb.velocity.x, spearForce);
+            spear1.SetActive(false);
+            spear2.SetActive(false);
+        }
+        if (ammo == 1)
+        {
+            spear1.SetActive(true);
+            spear1.SetActive(false);
+        }
+        if (ammo == 2)
+        {
+            spear1.SetActive(true);
+            spear2.SetActive(true);
+        }
+    }
+
+    void Cooldown()
+    {
+        cdSlider.maxValue = maxCD;
+        
+        cdSlider.value = cd;
+
+        if (stopCD == true)
+        {
+            sliderOBJ.SetActive(false);
+        }
+        else
+        {
+            sliderOBJ.SetActive(true);
         }
     }
 
@@ -220,11 +277,11 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Crystal") && ammo != 2)
         {
             ammo = ammo + 1;
-            Destroy(other.gameObject);
+            other.gameObject.SetActive(false);
         }
         if (other.CompareTag("JumpPad"))
         {
-            rb.AddForce(transform.up * padForce, ForceMode2D.Impulse );
+            rb.AddForce(transform.up * padForce, ForceMode2D.Impulse);
         }
     }
 }

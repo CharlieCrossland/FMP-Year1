@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dd7d5c18b12cd445a85f153cb0a0a8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundDistance: 1.95
+  groundDistance: 0.7
   layerMask:
     serializedVersion: 2
     m_Bits: 1

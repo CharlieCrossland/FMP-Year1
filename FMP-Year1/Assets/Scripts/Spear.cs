@@ -1,13 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Spear : MonoBehaviour
 {
-    [Header("Main")]
-    public float groundDistance;
-    public LayerMask layerMask;
-
     private Vector3 mousePosition;
     Vector3 throwVector;
     Vector3 shootingPoint;
@@ -33,11 +30,6 @@ public class Spear : MonoBehaviour
     void Update()
     {
         GetComponent<Rigidbody2D>().velocity = throwVector;
-    }
-
-    void FixedUpdate()
-    {
-        hitWall();
     }
 
     void GetSP() // finds where mouse is and places vector sp in pos
@@ -98,17 +90,11 @@ public class Spear : MonoBehaviour
         // DOES NOT WORK
     }
 
-    void hitWall()
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        hit = Physics2D.Raycast(transform.position, transform.right, groundDistance, layerMask); // Raycast changing length based on direction
-        Debug.DrawRay(transform.position, transform.right * groundDistance, Color.yellow);
+        GetComponent<Rigidbody2D>().freezeRotation = true;
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
 
-        if (hit.collider)
-        {
-            GetComponent<Rigidbody2D>().freezeRotation = true;
-            GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
-
-            Destroy(gameObject, 0.7f);
-        }
+        Destroy(gameObject, 0.7f);
     }
 }
