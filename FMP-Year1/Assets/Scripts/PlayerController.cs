@@ -279,9 +279,5 @@ public class PlayerController : MonoBehaviour
             ammo = ammo + 1;
             other.gameObject.SetActive(false);
         }
-        if (other.CompareTag("JumpPad"))
-        {
-            rb.AddForce(transform.up * padForce, ForceMode2D.Impulse);
-        }
     }
 }
