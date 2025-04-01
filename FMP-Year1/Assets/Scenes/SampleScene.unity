@@ -525,7 +525,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.38259226, g: 0.6886792, b: 0.10070309, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -565,7 +565,7 @@ GameObject:
   - component: {fileID: 569988668}
   - component: {fileID: 569988667}
   - component: {fileID: 569988669}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: JumpPad
   m_TagString: JumpPad
   m_Icon: {fileID: 0}
@@ -1336,7 +1336,7 @@ GameObject:
   m_Component:
   - component: {fileID: 910295320}
   - component: {fileID: 910295321}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3150,27 +3150,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2488359421437338560, guid: b31556705bfd7e946851461d34b43515, type: 3}
       propertyPath: groundDistance
-      value: 2.03
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2488359421437338560, guid: b31556705bfd7e946851461d34b43515, type: 3}
       propertyPath: layerMask.m_Bits
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6626575054745712892, guid: b31556705bfd7e946851461d34b43515, type: 3}
       propertyPath: m_Name
-      value: CrackedWall
-      objectReference: {fileID: 0}
-    - target: {fileID: 7146234297423126329, guid: b31556705bfd7e946851461d34b43515, type: 3}
-      propertyPath: m_Size.x
-      value: 2.5701692
+      value: FallingWall
       objectReference: {fileID: 0}
     - target: {fileID: 7146234297423126329, guid: b31556705bfd7e946851461d34b43515, type: 3}
       propertyPath: m_Size.y
-      value: 4.0134735
+      value: 3.7836084
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146234297423126329, guid: b31556705bfd7e946851461d34b43515, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7146234297423126329, guid: b31556705bfd7e946851461d34b43515, type: 3}
       propertyPath: m_Offset.y
-      value: -0.00832653
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

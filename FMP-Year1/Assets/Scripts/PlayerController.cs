@@ -48,9 +48,6 @@ public class PlayerController : MonoBehaviour
     private float jumpBufferTime = 0.2f;
     private float jumpBufferCounter;
 
-    [Header("JumpPad")]
-    public float padForce;
-
     RaycastHit2D hit;
     Vector3 startPos;
 
@@ -238,7 +235,7 @@ public class PlayerController : MonoBehaviour
         {
             sliderOBJ.SetActive(false);
         }
-        else
+        else if (hit.collider && stopCD == false)
         {
             sliderOBJ.SetActive(true);
         }
