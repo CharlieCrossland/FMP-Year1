@@ -51,7 +51,6 @@ public class CameraController : MonoBehaviour
         //     zoom = Mathf.Clamp(zoom, minZoom, maxZoom);
         //     cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, zoom, ref velocity, smoothTime);
         // }
-
     }
 }
 

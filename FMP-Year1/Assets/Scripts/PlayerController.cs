@@ -48,6 +48,8 @@ public class PlayerController : MonoBehaviour
     private float jumpBufferTime = 0.2f;
     private float jumpBufferCounter;
 
+    public Animator animator;
+
     RaycastHit2D hit;
     Vector3 startPos;
 
@@ -78,6 +80,7 @@ public class PlayerController : MonoBehaviour
         Quiver();
         Cooldown();
         MovementDirection();
+        CameraShake();
     }
 
     void FixedUpdate()
@@ -260,6 +263,27 @@ public class PlayerController : MonoBehaviour
         else if (!isFacingRight && inputs > .1f)
         {
             Flip();
+        }
+    }
+
+    void CameraShake()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0) && ammo >= 0.1f)
+        {
+            animator.SetBool("Shake", true);
+        }
+        else if (animator.GetCurrentAnimatorStateInfo (0).length < animator.GetCurrentAnimatorStateInfo(0).normalizedTime)
+        {
+            animator.SetBool("Shake", false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Mouse1) && ammo >= 0.1f)
+        {
+            animator.SetBool("Shake", true);
+        }
+        else if (animator.GetCurrentAnimatorStateInfo (0).length < animator.GetCurrentAnimatorStateInfo(0).normalizedTime)
+        {
+            animator.SetBool("Shake", false);
         }
     }  
 
