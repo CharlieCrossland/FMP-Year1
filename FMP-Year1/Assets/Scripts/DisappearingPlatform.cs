@@ -7,6 +7,11 @@ public class DisappearingPlatform : MonoBehaviour
 {
     public float timer;
     public float maxTime;
+    private bool disablePlat;
+    public Animator animator;
+    public BoxCollider2D col;
+    public GameObject Platform;
+    public GameObject Outline;
 
     // Start is called before the first frame update
     void Start()
@@ -17,33 +22,58 @@ public class DisappearingPlatform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Reactivate();
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+           animator.SetBool("Shake", true); 
+        }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            gameObject.SetActive(false);
-            
+            animator.SetBool("Shake", false);
+            disablePlat = true;
         }
     }
 
-    void OnEnable()
+    void Reactivate()
     {
-        // play animation
-    }
-
-    void OnDisable()
-    {
-        if (timer <= 0)
+        if (disablePlat == true)
         {
-            gameObject.SetActive(true);
-            timer = maxTime;
+            animator.SetBool("Out", true);
+
+            if (animator.GetCurrentAnimatorStateInfo (0).length < animator.GetCurrentAnimatorStateInfo(0).normalizedTime)
+            {
+                animator.SetBool("Out", false);
+                Platform.SetActive(false);
+                Outline.SetActive(true);
+            }
+
+            if (timer <= 0)
+            {
+                disablePlat = false;
+            }
+            else
+            {
+                timer -= Time.deltaTime;
+            }
+
+            col.enabled = false;
         }
         else
         {
-            timer -= Time.deltaTime;
+            Platform.SetActive(true);
+            Outline.SetActive(false);
+
+            timer = maxTime;
+
+            col.enabled = true;
         }
     }
 }
