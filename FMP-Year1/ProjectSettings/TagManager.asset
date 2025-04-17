@@ -9,6 +9,8 @@ TagManager:
   - Spear
   - Crystal
   - JumpPad
+  - Door
+  - Key
   layers:
   - Default
   - TransparentFX

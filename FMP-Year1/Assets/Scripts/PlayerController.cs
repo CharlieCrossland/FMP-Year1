@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
@@ -40,6 +42,9 @@ public class PlayerController : MonoBehaviour
     [Header("Quiver")]
     public GameObject spear1;
     public GameObject spear2;
+
+    [Header("Keys")]
+    public KeyManager KeyScript;
 
     [Header("Jumping")]
     private float coyoteTime = 0.2f;
@@ -299,6 +304,12 @@ public class PlayerController : MonoBehaviour
         {
             ammo = ammo + 1;
             other.gameObject.SetActive(false);
+        }
+
+        if (other.CompareTag("Key"))
+        {
+            KeyScript.keys++;
+            Destroy(other.gameObject);
         }
     }
 }

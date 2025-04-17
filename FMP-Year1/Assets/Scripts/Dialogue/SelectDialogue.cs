@@ -9,6 +9,7 @@ public class SelectDialogue : MonoBehaviour
     public string[] lines;
     public float textSpeed;
     public PlayerController pScript;
+    public Name nScript;
 
     private int index;
     public bool active;
@@ -18,6 +19,8 @@ public class SelectDialogue : MonoBehaviour
     {
         gameObject.SetActive(false);
         textComp.text = string.Empty;
+        
+
         startDialogue();
     }
 

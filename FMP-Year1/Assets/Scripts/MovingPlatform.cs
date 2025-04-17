@@ -5,20 +5,31 @@ using UnityEngine;
 
 public class MovingWall : MonoBehaviour
 {
-    public Vector2 pointA;
-    public Vector2 pointB;
-
-    public Vector2 target;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        target = pointA;
-    }
+    public float moveSpeed;
+    public Transform pointA;
+    public Transform pointB;
+    public bool movingBack;
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, target, Time.deltaTime);
+        if (!movingBack && transform.position != pointB.position)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, pointB.position, moveSpeed * Time.deltaTime);
+
+            if (transform.position == pointB.position)
+            {
+                movingBack = false;
+            }
+        }
+        else if (movingBack && transform.position != pointA.position)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, pointA.position, moveSpeed * Time.deltaTime);
+
+            if (transform.position == pointA.position)
+            {
+                movingBack = true;
+            }
+        }
     }
 }

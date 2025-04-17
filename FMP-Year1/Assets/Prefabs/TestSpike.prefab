@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2691924153024361585}
   - component: {fileID: 8337841826765153947}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4517722421685651352}
   - component: {fileID: 830529683944670165}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TestSpike
   m_TagString: KillPlayer
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1806464376414740251}
   - component: {fileID: 9223208834563210399}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
