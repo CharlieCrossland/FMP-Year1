@@ -9,6 +9,7 @@ public class SceneTransition : MonoBehaviour
 {
     public static SceneTransition instance;
     [SerializeField] Animator transitionAnim;
+    
 
     private void Awake()
     {
