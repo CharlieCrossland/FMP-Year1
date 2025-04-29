@@ -11,6 +11,9 @@ TagManager:
   - JumpPad
   - Door
   - Key
+  - Give2Spears
+  - PreTrigger
+  - GiveSpear
   layers:
   - Default
   - TransparentFX

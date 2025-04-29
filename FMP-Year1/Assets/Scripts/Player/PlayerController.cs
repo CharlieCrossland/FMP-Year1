@@ -21,11 +21,15 @@ public class PlayerController : MonoBehaviour
     public bool onSpear;
     float inputs;
 
+    [Header("Pre")]
+    public bool noSpear;
+
     [Header("Hitbox")]
     public Rigidbody2D rb;
 
     [Header("Spear")]
     public GameObject spear;
+    public GameObject Quiver;
     public float cd;
     public float maxCD;
     public Slider cdSlider;
@@ -38,8 +42,9 @@ public class PlayerController : MonoBehaviour
     public float maxTimeOnS;
     public float TimeOnS;
     public int ammo;
+    public int maxAmmo;
 
-    [Header("Quiver")]
+    [Header("QuiverSpears")]
     public GameObject spear1;
     public GameObject spear2;
 
@@ -82,10 +87,11 @@ public class PlayerController : MonoBehaviour
         jumpBuffer();
         Coyote();
         SpearHandler();
-        Quiver();
+        QuiverVisuals();
         Cooldown();
         MovementDirection();
         CameraShake();
+        PreLevel();
     }
 
     void FixedUpdate()
@@ -214,7 +220,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Quiver()
+    void QuiverVisuals()
     {
         if (ammo <= 0)
         {
@@ -298,9 +304,23 @@ public class PlayerController : MonoBehaviour
         transform.Rotate(0f, 180f, 0f);
     }
 
+    void PreLevel()
+    {
+        if (noSpear == true)
+        {
+            ammo = 0;
+            Quiver.SetActive(false);
+            sliderOBJ.SetActive(false);
+        }
+        else
+        {
+            Quiver.SetActive(true);
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Crystal") && ammo != 2)
+        if (other.CompareTag("Crystal") && ammo != maxAmmo)
         {
             ammo = ammo + 1;
             other.gameObject.SetActive(false);
@@ -310,6 +330,22 @@ public class PlayerController : MonoBehaviour
         {
             KeyScript.keys++;
             Destroy(other.gameObject);
+        }
+
+        if (other.CompareTag("PreTrigger"))
+        {
+            noSpear = true;
+        }
+
+        if (other.CompareTag("GiveSpear"))
+        {
+            noSpear = false;
+            maxAmmo = 1;
+        }
+
+        if (other.CompareTag("Give2Spears"))
+        {
+            maxAmmo = 2;
         }
     }
 }

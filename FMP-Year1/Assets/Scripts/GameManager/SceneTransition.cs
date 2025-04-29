@@ -24,6 +24,14 @@ public class SceneTransition : MonoBehaviour
         }
     }
 
+    public void Update()
+    {
+        if (SceneManager.GetActiveScene () == SceneManager.GetSceneByName ("MainMenu"))
+        {
+            Destroy(gameObject);
+        }
+    }
+
     public void NextLevel()
     {
             StartCoroutine(LoadLevel());

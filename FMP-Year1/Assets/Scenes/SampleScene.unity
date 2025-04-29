@@ -1232,10 +1232,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -3490632139516750362, guid: e67ad3bb62d807f4aad647e610a2094e, type: 3}
-      propertyPath: pScript
-      value: 
-      objectReference: {fileID: 1953417897}
     - target: {fileID: 222706968819714274, guid: e67ad3bb62d807f4aad647e610a2094e, type: 3}
       propertyPath: m_Name
       value: Spear
@@ -2221,10 +2217,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 58025206942481133, guid: 4ddbde436053e5e479ca32bf29200b4f, type: 3}
-      propertyPath: keyVis
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 859937368061393333, guid: 4ddbde436053e5e479ca32bf29200b4f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.628482
@@ -2410,8 +2402,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7226078465296780825, guid: 3989b5a97862b3b429cd161199cbeb3d, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2538,18 +2529,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1117920619034596019, guid: 948c3c585d4dbcc46a7457b197ebab81, type: 3}
-      propertyPath: moveSpeed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2616007853517458895, guid: 948c3c585d4dbcc46a7457b197ebab81, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2616007853517458895, guid: 948c3c585d4dbcc46a7457b197ebab81, type: 3}
-      propertyPath: m_UsedByEffector
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3583079082860693485, guid: 948c3c585d4dbcc46a7457b197ebab81, type: 3}
       propertyPath: m_Name
       value: MovingEnemy
@@ -2659,10 +2638,6 @@ PrefabInstance:
       propertyPath: pScript
       value: 
       objectReference: {fileID: 1953417897}
-    - target: {fileID: 7783155863512662496, guid: e87be36480b54254f82e49cbb23eab8a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

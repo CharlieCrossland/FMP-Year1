@@ -905,7 +905,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8949890462620040625}
-  - component: {fileID: 7226078465296780825}
+  - component: {fileID: 7283737303913203834}
   m_Layer: 2
   m_Name: PlayerContainer
   m_TagString: Untagged
@@ -931,7 +931,7 @@ Transform:
   - {fileID: 1363706906622747465}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7226078465296780825
+--- !u!114 &7283737303913203834
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -940,7 +940,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5775352323186351365}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84424a044abf19643b9044710979c097, type: 3}
+  m_Script: {fileID: 11500000, guid: 46d7df7636278bf438fb738f38ba5756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6218854196273579699
@@ -1454,8 +1454,10 @@ MonoBehaviour:
   isFacingRight: 0
   dead: 0
   onSpear: 0
+  noSpear: 0
   rb: {fileID: 4749066870570836711}
   spear: {fileID: 222706968819714274, guid: e67ad3bb62d807f4aad647e610a2094e, type: 3}
+  Quiver: {fileID: 5586606581923333090}
   cd: 0
   maxCD: 0.3
   cdSlider: {fileID: 1006811636029306216}
@@ -1463,6 +1465,7 @@ MonoBehaviour:
   maxTimeOnS: 0.178
   TimeOnS: 0
   ammo: 0
+  maxAmmo: 0
   spear1: {fileID: 8361359640959510037}
   spear2: {fileID: 2553752346182091217}
   KeyScript: {fileID: 0}

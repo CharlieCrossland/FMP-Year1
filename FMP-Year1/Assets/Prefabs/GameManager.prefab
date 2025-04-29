@@ -307,3 +307,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keys: 0
   keyVis: {fileID: 0}
+  findKey: 0
