@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask layerMask;
     public bool isFacingRight;
     public bool dead;
+    public bool nextLevel;
     public bool onSpear;
     float inputs;
 
@@ -62,24 +63,38 @@ public class PlayerController : MonoBehaviour
 
     RaycastHit2D hit;
     Vector3 startPos;
+    Vector3 checkPos;
 
 
     // Start is called before the first frame update
     void Start()
     {
         isFacingRight = true;
-        startPos = transform.position;
         TimeOnS = maxTimeOnS;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (nextLevel == true)
+        {
+            startPos = transform.position;
+            checkPos = transform.position;
+            
+            nextLevel = false;
+        }
         if (dead == true)
         {
-            transform.position = startPos;
+            transform.position = checkPos;
 
             dead = false;
+        }
+
+        // for play test
+        // let player reset to beginning
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene("MainMenu");
         }
 
         Movement();
@@ -90,7 +105,7 @@ public class PlayerController : MonoBehaviour
         QuiverVisuals();
         Cooldown();
         MovementDirection();
-        CameraShake();
+        // CameraShake();
         PreLevel();
     }
 
@@ -103,7 +118,7 @@ public class PlayerController : MonoBehaviour
                 TimeOnS = maxTimeOnS; // reset timer on spear
 
                 Vector2 distance = shootingPoint - transform.position; // calculates distance
-                throwVector = distance.normalized * 25;       
+                throwVector = distance.normalized * 17;       
 
                 calculateDistance = false;         
             }
@@ -277,26 +292,26 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void CameraShake()
-    {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && ammo >= 0.1f)
-        {
-            animator.SetBool("Shake", true);
-        }
-        else if (animator.GetCurrentAnimatorStateInfo (0).length < animator.GetCurrentAnimatorStateInfo(0).normalizedTime)
-        {
-            animator.SetBool("Shake", false);
-        }
+    // void CameraShake()
+    // {
+    //     if (Input.GetKeyDown(KeyCode.Mouse0) && ammo >= 0.1f)
+    //     {
+    //         animator.SetBool("Shake", true);
+    //     }
+    //     else if (animator.GetCurrentAnimatorStateInfo (0).length < animator.GetCurrentAnimatorStateInfo(0).normalizedTime)
+    //     {
+    //         animator.SetBool("Shake", false);
+    //     }
 
-        if (Input.GetKeyDown(KeyCode.Mouse1) && ammo >= 0.1f)
-        {
-            animator.SetBool("Shake", true);
-        }
-        else if (animator.GetCurrentAnimatorStateInfo (0).length < animator.GetCurrentAnimatorStateInfo(0).normalizedTime)
-        {
-            animator.SetBool("Shake", false);
-        }
-    }  
+    //     if (Input.GetKeyDown(KeyCode.Mouse1) && ammo >= 0.1f)
+    //     {
+    //         animator.SetBool("Shake", true);
+    //     }
+    //     else if (animator.GetCurrentAnimatorStateInfo (0).length < animator.GetCurrentAnimatorStateInfo(0).normalizedTime)
+    //     {
+    //         animator.SetBool("Shake", false);
+    //     }
+    // }  
 
     void Flip()
     {
@@ -320,6 +335,10 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.CompareTag("Checkpoint"))
+        {
+            checkPos = transform.position;
+        }
         if (other.CompareTag("Crystal") && ammo != maxAmmo)
         {
             ammo = ammo + 1;

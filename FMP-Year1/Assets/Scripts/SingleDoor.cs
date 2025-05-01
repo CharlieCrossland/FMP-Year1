@@ -10,7 +10,8 @@ public class SingleDoor : MonoBehaviour
 {
     public KeyManager mScript;
     public Animator ToolTip;
-    public GameObject ToolTipOBJ;
+    public bool canEnter;
+    public PlayerController PScript;
 
     // Start is called before the first frame update
     void Start()
@@ -21,27 +22,24 @@ public class SingleDoor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+            if (Input.GetKeyDown(KeyCode.E) && mScript.keys == 1 && canEnter == true)
+            {
+                Debug.Log("EnterDoor");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                mScript.keys--;
+                PScript.nextLevel = true;
+            }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player")) // tooltip animation
         {
-           ToolTip.SetBool("Appear", true);
-           ToolTip.SetBool("Disappear", false);
-        }
-    }
+            ToolTip.SetBool("Appear", true);
+            ToolTip.SetBool("Disappear", false);
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player") && Input.GetButtonDown("Interact") && mScript.keys == 1) // check if player can enter door
-            {
-                Debug.Log("EnterDoor");
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-                mScript.keys--;
-                mScript.findKey = true;
-            }
+            canEnter = true;
+        }    
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -50,6 +48,8 @@ public class SingleDoor : MonoBehaviour
         {
             ToolTip.SetBool("Appear", false);
             ToolTip.SetBool("Disappear", true);
+
+            canEnter = false;
         }
     }
 

@@ -5,12 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class SaveBetweenLevels : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -18,7 +12,11 @@ public class SaveBetweenLevels : MonoBehaviour
 
         if (SceneManager.GetActiveScene () == SceneManager.GetSceneByName ("MainMenu"))
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
+        }
+        else if (SceneManager.GetActiveScene () != SceneManager.GetSceneByName ("MainMenu"))
+        {
+            gameObject.SetActive(true);
         }
     }
 }
