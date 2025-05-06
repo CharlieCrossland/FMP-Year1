@@ -19,7 +19,6 @@ public class SelectDialogue : MonoBehaviour
     {
         gameObject.SetActive(false);
         textComp.text = string.Empty;
-        
 
         startDialogue();
     }
