@@ -25,7 +25,7 @@ public class SingleDoor : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E) && mScript.keys == 1 && canEnter == true)
             {
                 Debug.Log("EnterDoor");
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                SceneTransition.instance.NextLevel();
                 mScript.keys--;
                 PScript.nextLevel = true;
             }

@@ -12,11 +12,7 @@ public class SaveBetweenLevels : MonoBehaviour
 
         if (SceneManager.GetActiveScene () == SceneManager.GetSceneByName ("MainMenu"))
         {
-            gameObject.SetActive(false);
-        }
-        else if (SceneManager.GetActiveScene () != SceneManager.GetSceneByName ("MainMenu"))
-        {
-            gameObject.SetActive(true);
+            Destroy(gameObject);
         }
     }
 }

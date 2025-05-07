@@ -59,7 +59,6 @@ public class PlayerController : MonoBehaviour
     private float jumpBufferTime = 0.2f;
     private float jumpBufferCounter;
 
-    public Animator animator;
 
     RaycastHit2D hit;
     Vector3 startPos;
@@ -88,13 +87,6 @@ public class PlayerController : MonoBehaviour
             transform.position = checkPos;
 
             dead = false;
-        }
-
-        // for play test
-        // let player reset to beginning
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            SceneManager.LoadScene("MainMenu");
         }
 
         Movement();
@@ -276,7 +268,7 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new UnityEngine.Vector2(inputs * moveSpeed, rb.velocity.y);
 
         hit = Physics2D.Raycast(transform.position, -transform.up, groundDistance, layerMask);
-        Debug.DrawRay(transform.position, -transform.up * groundDistance, Color.yellow);        
+        Debug.DrawRay(transform.position, -transform.up * groundDistance, Color.yellow);   
     }
 
     

@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 2da6170c93a88cc44bdedb85116f9e7a
   - enabled: 1
+    path: Assets/Scenes/Pre - House.unity
+    guid: 12ef0824b8c6e6440b3a7d81a62f288f
+  - enabled: 1
     path: Assets/Scenes/PlayTest Level.unity
     guid: 89eeed226624e96429322f8d147993c5
   - enabled: 0
