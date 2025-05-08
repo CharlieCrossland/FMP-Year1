@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1377482932114110437}
   - component: {fileID: 5063643259769464556}
   - component: {fileID: 1934289302084553087}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Square
   m_TagString: Key
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7868509751693693418}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Key
   m_TagString: Key
   m_Icon: {fileID: 0}

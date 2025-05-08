@@ -8,10 +8,16 @@ using UnityEngine.SceneManagement;
 
 public class SingleDoor : MonoBehaviour
 {
+    [Header("Main")]
     public KeyManager mScript;
     public Animator ToolTip;
     public bool canEnter;
-    public PlayerController PScript;
+
+    [Header("Timer")]
+    public bool startTimer;
+    public float timer;
+    public float maxTime;
+
 
     // Start is called before the first frame update
     void Start()
@@ -24,10 +30,28 @@ public class SingleDoor : MonoBehaviour
     {
             if (Input.GetKeyDown(KeyCode.E) && mScript.keys == 1 && canEnter == true)
             {
-                Debug.Log("EnterDoor");
-                SceneTransition.instance.NextLevel();
-                mScript.keys--;
-                PScript.nextLevel = true;
+                SceneTransition.instance.NextLevel(); // moves onto next level
+                mScript.keys--; // removes the key used
+            }
+            else if (Input.GetKeyDown(KeyCode.E) && mScript.keys == 0 && canEnter == true)
+            {
+                ToolTip.SetBool("Denied", true); // shows the player that they can't enter
+
+                startTimer = true;
+            }
+
+            if (startTimer == true)
+            {
+                if (timer <= 0)
+                {
+                    ToolTip.SetBool("Denied", false);
+                    timer = maxTime; // reset timer
+                    startTimer = false;
+                }
+                else
+                {
+                    timer -= Time.deltaTime;
+                }
             }
     }
 
@@ -48,6 +72,7 @@ public class SingleDoor : MonoBehaviour
         {
             ToolTip.SetBool("Appear", false);
             ToolTip.SetBool("Disappear", true);
+            ToolTip.SetBool("Denied", false);
 
             canEnter = false;
         }

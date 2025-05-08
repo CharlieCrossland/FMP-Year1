@@ -10,11 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1595485704708303224, guid: b5f62370ebe584f41982629a86111305, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.25
+      value: -3.1256874
       objectReference: {fileID: 0}
     - target: {fileID: 1595485704708303224, guid: b5f62370ebe584f41982629a86111305, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.488
+      value: -1.3709905
       objectReference: {fileID: 0}
     - target: {fileID: 1595485704708303224, guid: b5f62370ebe584f41982629a86111305, type: 3}
       propertyPath: m_LocalPosition.z
@@ -48,13 +48,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2322984830107569064, guid: b5f62370ebe584f41982629a86111305, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fec0ee083e8785247a66e01e3a9690f9, type: 3}
+    - target: {fileID: 2322984830107569064, guid: b5f62370ebe584f41982629a86111305, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4123140555843348857, guid: b5f62370ebe584f41982629a86111305, type: 3}
       propertyPath: ToolTip
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8656640759472366023, guid: b5f62370ebe584f41982629a86111305, type: 3}
       propertyPath: m_Name
-      value: LevelStart
+      value: DoorNoLock
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4123140555843348857, guid: b5f62370ebe584f41982629a86111305, type: 3}

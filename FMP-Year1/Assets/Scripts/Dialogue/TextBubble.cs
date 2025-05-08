@@ -9,6 +9,9 @@ public class TextBubble : MonoBehaviour
 {
     public Animator animator;
     public TMP_Text text;
+    bool startTimer;
+    public float timer;
+    public float maxTime;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +22,19 @@ public class TextBubble : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (startTimer == true)
+        {
+            if (timer <= 0)
+            {
+                text.enabled = true;
+                timer = maxTime; // reset timer
+                startTimer = false;
+            }
+            else
+            {
+                timer -= Time.deltaTime;
+            }
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -29,7 +44,7 @@ public class TextBubble : MonoBehaviour
             animator.SetBool("Appear", true); // text bubble appears
             animator.SetBool("Disappear", false);
 
-            text.enabled = true;
+            startTimer = true;
         }
     }
 
@@ -41,6 +56,9 @@ public class TextBubble : MonoBehaviour
             animator.SetBool("Disappear", true);
 
             text.enabled = false;
+            startTimer = false;
+
+            timer = maxTime;
         }
     }
 }

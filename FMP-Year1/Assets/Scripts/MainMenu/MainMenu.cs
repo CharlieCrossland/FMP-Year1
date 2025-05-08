@@ -14,7 +14,7 @@ public class MainMenu : MonoBehaviour
 
     public void OnPlay()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneTransition.instance.NextLevel(); // uses scene transition to next level
     }
 
     public void OnExit()

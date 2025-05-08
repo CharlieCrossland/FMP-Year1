@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour
     public LayerMask layerMask;
     public bool isFacingRight;
     public bool dead;
-    public bool nextLevel;
     public bool onSpear;
     float inputs;
 
@@ -70,18 +69,12 @@ public class PlayerController : MonoBehaviour
     {
         isFacingRight = true;
         TimeOnS = maxTimeOnS;
+        startPos = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (nextLevel == true)
-        {
-            startPos = transform.position;
-            checkPos = transform.position;
-            
-            nextLevel = false;
-        }
         if (dead == true)
         {
             transform.position = checkPos;
@@ -97,7 +90,6 @@ public class PlayerController : MonoBehaviour
         QuiverVisuals();
         Cooldown();
         MovementDirection();
-        // CameraShake();
         PreLevel();
     }
 
@@ -229,7 +221,7 @@ public class PlayerController : MonoBehaviour
 
     void QuiverVisuals()
     {
-        if (ammo <= 0)
+        if (ammo == 0)
         {
             spear1.SetActive(false);
             spear2.SetActive(false);
@@ -283,27 +275,6 @@ public class PlayerController : MonoBehaviour
             Flip();
         }
     }
-
-    // void CameraShake()
-    // {
-    //     if (Input.GetKeyDown(KeyCode.Mouse0) && ammo >= 0.1f)
-    //     {
-    //         animator.SetBool("Shake", true);
-    //     }
-    //     else if (animator.GetCurrentAnimatorStateInfo (0).length < animator.GetCurrentAnimatorStateInfo(0).normalizedTime)
-    //     {
-    //         animator.SetBool("Shake", false);
-    //     }
-
-    //     if (Input.GetKeyDown(KeyCode.Mouse1) && ammo >= 0.1f)
-    //     {
-    //         animator.SetBool("Shake", true);
-    //     }
-    //     else if (animator.GetCurrentAnimatorStateInfo (0).length < animator.GetCurrentAnimatorStateInfo(0).normalizedTime)
-    //     {
-    //         animator.SetBool("Shake", false);
-    //     }
-    // }  
 
     void Flip()
     {
