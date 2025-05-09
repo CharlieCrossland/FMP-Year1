@@ -19,7 +19,12 @@ public class PlayerController : MonoBehaviour
     public bool isFacingRight;
     public bool dead;
     public bool onSpear;
+    public bool leftGround;
     float inputs;
+
+    [Header("Audio")]
+    public AudioSource Land;
+    public AudioSource Running;
 
     [Header("Pre")]
     public bool noSpear;
@@ -84,6 +89,7 @@ public class PlayerController : MonoBehaviour
 
         Movement();
         Jump();
+        Audio();
         jumpBuffer();
         Coyote();
         SpearHandler();
@@ -142,6 +148,25 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
 
             coyoteTimeCounter = 0f;
+        }
+    }
+
+    void Audio()
+    { 
+        if (!hit.collider) // leaves the ground // play land audio
+        {
+            Debug.Log("Left Ground");
+
+            leftGround = true;
+        }
+
+        if (hit.collider && leftGround == true) // hits the ground
+        {
+            Debug.Log("Play Land Audio");
+
+            Land.Play();
+
+            leftGround = false;
         }
     }
 
@@ -258,6 +283,11 @@ public class PlayerController : MonoBehaviour
     {
         inputs = Input.GetAxisRaw("Horizontal");
         rb.velocity = new UnityEngine.Vector2(inputs * moveSpeed, rb.velocity.y);
+
+        if (inputs == 1 || inputs == -1)
+        {
+            Running.Play();
+        }
 
         hit = Physics2D.Raycast(transform.position, -transform.up, groundDistance, layerMask);
         Debug.DrawRay(transform.position, -transform.up * groundDistance, Color.yellow);   

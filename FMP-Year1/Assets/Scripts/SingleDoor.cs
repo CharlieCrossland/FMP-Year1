@@ -13,6 +13,9 @@ public class SingleDoor : MonoBehaviour
     public Animator ToolTip;
     public bool canEnter;
 
+    [Header("Audio")]
+    public AudioSource Denied;
+
     [Header("Timer")]
     public bool startTimer;
     public float timer;
@@ -36,6 +39,8 @@ public class SingleDoor : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.E) && mScript.keys == 0 && canEnter == true)
             {
                 ToolTip.SetBool("Denied", true); // shows the player that they can't enter
+
+                Denied.Play();
 
                 startTimer = true;
             }

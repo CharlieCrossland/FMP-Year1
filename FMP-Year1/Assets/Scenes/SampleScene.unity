@@ -372,6 +372,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!82 &530265980 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 399175914260651193, guid: 3989b5a97862b3b429cd161199cbeb3d, type: 3}
+  m_PrefabInstance: {fileID: 4300793143743402969}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1649,10 +1654,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 399175914260651193, guid: 3989b5a97862b3b429cd161199cbeb3d, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 399175914260651193, guid: 3989b5a97862b3b429cd161199cbeb3d, type: 3}
+      propertyPath: MinDistance
+      value: 0.8250811
+      objectReference: {fileID: 0}
     - target: {fileID: 5775352323186351365, guid: 3989b5a97862b3b429cd161199cbeb3d, type: 3}
       propertyPath: m_Name
       value: PlayerContainer
       objectReference: {fileID: 0}
+    - target: {fileID: 7034619787211933681, guid: 3989b5a97862b3b429cd161199cbeb3d, type: 3}
+      propertyPath: Running
+      value: 
+      objectReference: {fileID: 530265980}
     - target: {fileID: 7034619787211933681, guid: 3989b5a97862b3b429cd161199cbeb3d, type: 3}
       propertyPath: KeyScript
       value: 
