@@ -121,13 +121,13 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 0.157
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.8250811
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -1287,13 +1287,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7420526600909812360}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.20752414, w: 0.97822994}
-  m_LocalPosition: {x: -0.05, y: 0.05, z: 0}
-  m_LocalScale: {x: 1.6419, y: 0.4125, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.8407094, w: 0.5414866}
+  m_LocalPosition: {x: -0.327, y: 0.872, z: 0}
+  m_LocalScale: {x: 0.63483477, y: 0.53356564, z: 0.3866464}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8605139197158703595}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 23.955}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 114.43}
 --- !u!212 &3563213366267589561
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1334,9 +1334,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -2
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.9622642, g: 0.94114894, b: 0.05900679, a: 1}
+  m_SortingOrder: 4
+  m_Sprite: {fileID: 21300000, guid: fba857fd657070947993012312f6959c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1571,6 +1571,7 @@ MonoBehaviour:
   onSpear: 0
   leftGround: 0
   Land: {fileID: 1645396055575834902}
+  Running: {fileID: 399175914260651193}
   noSpear: 0
   rb: {fileID: 4749066870570836711}
   spear: {fileID: 222706968819714274, guid: e67ad3bb62d807f4aad647e610a2094e, type: 3}

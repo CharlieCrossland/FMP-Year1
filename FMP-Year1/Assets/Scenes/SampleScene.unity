@@ -372,11 +372,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!82 &530265980 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 399175914260651193, guid: 3989b5a97862b3b429cd161199cbeb3d, type: 3}
-  m_PrefabInstance: {fileID: 4300793143743402969}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1654,22 +1649,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 399175914260651193, guid: 3989b5a97862b3b429cd161199cbeb3d, type: 3}
-      propertyPath: Loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 399175914260651193, guid: 3989b5a97862b3b429cd161199cbeb3d, type: 3}
-      propertyPath: MinDistance
-      value: 0.8250811
-      objectReference: {fileID: 0}
     - target: {fileID: 5775352323186351365, guid: 3989b5a97862b3b429cd161199cbeb3d, type: 3}
       propertyPath: m_Name
       value: PlayerContainer
       objectReference: {fileID: 0}
-    - target: {fileID: 7034619787211933681, guid: 3989b5a97862b3b429cd161199cbeb3d, type: 3}
-      propertyPath: Running
-      value: 
-      objectReference: {fileID: 530265980}
     - target: {fileID: 7034619787211933681, guid: 3989b5a97862b3b429cd161199cbeb3d, type: 3}
       propertyPath: KeyScript
       value: 
@@ -1799,15 +1782,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7868509751693693418, guid: 82db4dc5ecc82494bbccb838d303244b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.06
+      value: 6.9122
       objectReference: {fileID: 0}
     - target: {fileID: 7868509751693693418, guid: 82db4dc5ecc82494bbccb838d303244b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.28
+      value: -2.2511
       objectReference: {fileID: 0}
     - target: {fileID: 7868509751693693418, guid: 82db4dc5ecc82494bbccb838d303244b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.9935893
+      value: 1.4391
       objectReference: {fileID: 0}
     - target: {fileID: 7868509751693693418, guid: 82db4dc5ecc82494bbccb838d303244b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1970,11 +1953,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5577687349110098369, guid: cacba7450112b634a9db65b0359f7de0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.570001
+      value: 9.649
       objectReference: {fileID: 0}
     - target: {fileID: 5577687349110098369, guid: cacba7450112b634a9db65b0359f7de0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.05
+      value: -2.3337
       objectReference: {fileID: 0}
     - target: {fileID: 5577687349110098369, guid: cacba7450112b634a9db65b0359f7de0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2183,26 +2166,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 857217003166185728, guid: e87be36480b54254f82e49cbb23eab8a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4032956731719124850, guid: e87be36480b54254f82e49cbb23eab8a, type: 3}
       propertyPath: m_Name
       value: UIContainer
       objectReference: {fileID: 0}
     - target: {fileID: 5114379597268129189, guid: e87be36480b54254f82e49cbb23eab8a, type: 3}
-      propertyPath: nScript
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5114379597268129189, guid: e87be36480b54254f82e49cbb23eab8a, type: 3}
       propertyPath: pScript
       value: 
       objectReference: {fileID: 1953417897}
-    - target: {fileID: 7783155863512662496, guid: e87be36480b54254f82e49cbb23eab8a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
