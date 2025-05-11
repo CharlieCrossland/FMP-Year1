@@ -33,12 +33,25 @@ public class SceneTransition : MonoBehaviour
     {
             StartCoroutine(LoadLevel());
     }
+    
+    public void LoadMainMenu()
+    {
+            StartCoroutine(MainMenu());
+    }
 
     IEnumerator LoadLevel()
     {
         transitionAnim.SetTrigger("End");
         yield return new WaitForSeconds(1);
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+        transitionAnim.SetTrigger("Start");
+    }
+
+    IEnumerator MainMenu()
+    {
+        transitionAnim.SetTrigger("End");
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadSceneAsync("MainMenu");
         transitionAnim.SetTrigger("Start");
     }
 }

@@ -87,16 +87,23 @@ public class PlayerController : MonoBehaviour
             dead = false;
         }
 
-        Movement();
-        Jump();
-        Audio();
-        jumpBuffer();
-        Coyote();
-        SpearHandler();
-        QuiverVisuals();
-        Cooldown();
-        MovementDirection();
-        PreLevel();
+        if (Time.timeScale == 1f)
+        {
+            Movement();
+            Jump();
+            Audio();
+            jumpBuffer();
+            Coyote();
+            SpearHandler();
+            QuiverVisuals();
+            Cooldown();
+            MovementDirection();
+            PreLevel();            
+        }
+        else
+        {
+
+        }
     }
 
     void FixedUpdate()
@@ -283,11 +290,6 @@ public class PlayerController : MonoBehaviour
     {
         inputs = Input.GetAxisRaw("Horizontal");
         rb.velocity = new UnityEngine.Vector2(inputs * moveSpeed, rb.velocity.y);
-
-        if (inputs == 1 || inputs == -1)
-        {
-            Running.Play();
-        }
 
         hit = Physics2D.Raycast(transform.position, -transform.up, groundDistance, layerMask);
         Debug.DrawRay(transform.position, -transform.up * groundDistance, Color.yellow);   
