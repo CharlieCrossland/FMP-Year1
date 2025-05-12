@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
             dead = false;
         }
 
-        if (Time.timeScale == 1f)
+        if (Time.timeScale >= 0.1f)
         {
             Movement();
             Jump();

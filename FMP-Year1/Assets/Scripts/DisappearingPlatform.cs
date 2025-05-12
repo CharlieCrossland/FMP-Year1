@@ -39,6 +39,8 @@ public class DisappearingPlatform : MonoBehaviour
         {
             animator.SetBool("Shake", false);
             disablePlat = true;
+
+            timer = maxTime;
         }
     }
 
