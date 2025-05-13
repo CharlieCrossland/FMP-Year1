@@ -228,7 +228,7 @@ public class PlayerController : MonoBehaviour
             cd = maxCD;
         }
 
-        if (cd >= 0 && ammo == 2)
+        if (cd >= 0 && ammo == maxAmmo)
         {
             stopCD = true;
         }
@@ -237,9 +237,9 @@ public class PlayerController : MonoBehaviour
             stopCD = false;
         }
 
-        if (ammo > 2) // stops ammo going above 2
+        if (ammo > maxAmmo) // stops ammo going above 2
         {
-            ammo = 2;
+           ammo = maxAmmo;
         }
 
         if (Input.GetKeyDown(KeyCode.Mouse1) && ammo >= 0.1f) // right click to shoot spear
@@ -261,7 +261,7 @@ public class PlayerController : MonoBehaviour
         if (ammo == 1)
         {
             spear1.SetActive(true);
-            spear1.SetActive(false);
+            spear2.SetActive(false);
         }
         if (ammo == 2)
         {
@@ -355,6 +355,8 @@ public class PlayerController : MonoBehaviour
         {
             noSpear = false;
             maxAmmo = 1;
+
+            Destroy(other.gameObject);
         }
 
         if (other.CompareTag("Give2Spears"))
