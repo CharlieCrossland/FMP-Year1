@@ -8,7 +8,6 @@ public class Spear : MonoBehaviour
     private Vector3 mousePosition;
     Vector3 throwVector;
     Vector3 shootingPoint;
-    RaycastHit2D hit;
 
     [SerializeField] float initialAngle;
 
@@ -16,7 +15,7 @@ public class Spear : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, 1.75f);
+        Destroy(gameObject, 1.45f);
 
         GetSP();
 
@@ -96,5 +95,16 @@ public class Spear : MonoBehaviour
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
 
         Destroy(gameObject, 0.7f);
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("KillPlayer"))
+        {
+            GetComponent<Rigidbody2D>().freezeRotation = true;
+            GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
+
+            Destroy(gameObject, 0.7f); 
+        }
     }
 }

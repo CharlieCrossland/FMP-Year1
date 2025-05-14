@@ -25,12 +25,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 880544392926571549}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0014, y: 0.2219, z: 0.22326358}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -62.696644, y: -1.6947182, z: 2.6000946}
   m_LocalScale: {x: 0.6337615, y: 0.7559291, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6833397939964734360}
+  m_Father: {fileID: 2261430016725853918}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4524866429441995915
 SpriteRenderer:
@@ -84,6 +84,39 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &4977134572305135506
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2261430016725853918}
+  m_Layer: 0
+  m_Name: Object
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2261430016725853918
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4977134572305135506}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 62.698044, y: 1.9166182, z: -2.376831}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 197047554480718225}
+  - {fileID: 3473428205699591341}
+  m_Father: {fileID: 6833397939964734360}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5936931469118506127
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +127,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6833397939964734360}
   - component: {fileID: 5139076868757315254}
+  - component: {fileID: 3346321335033021335}
   m_Layer: 2
   m_Name: Crystal
   m_TagString: Crystal
@@ -114,8 +148,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 197047554480718225}
-  - {fileID: 3473428205699591341}
+  - {fileID: 2261430016725853918}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &5139076868757315254
@@ -163,6 +196,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6489066, y: 1.2670357}
   m_EdgeRadius: 0
+--- !u!114 &3346321335033021335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5936931469118506127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eedfe86348a9034eb66e5ba833196bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 0
+  maxTime: 2
+  PScript: {fileID: 0}
+  obj: {fileID: 4977134572305135506}
+  startTimer: 0
+  active: 0
 --- !u!1 &6109570832259710732
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,12 +239,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6109570832259710732}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: 0.0014, y: -0.212, z: 0.22326358}
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
+  m_LocalPosition: {x: -62.696644, y: -2.1286182, z: 2.6000946}
   m_LocalScale: {x: 0.6337615, y: 0.7559291, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6833397939964734360}
+  m_Father: {fileID: 2261430016725853918}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!212 &5307680415455422481
 SpriteRenderer:

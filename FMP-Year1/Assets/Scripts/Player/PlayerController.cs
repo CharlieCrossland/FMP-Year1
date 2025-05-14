@@ -69,11 +69,14 @@ public class PlayerController : MonoBehaviour
     Vector3 checkPos;
 
 
+
     // Start is called before the first frame update
     void Start()
     {
         isFacingRight = true;
         TimeOnS = maxTimeOnS;
+        dead = false;
+
         startPos = transform.position;
     }
 
@@ -82,7 +85,7 @@ public class PlayerController : MonoBehaviour
     {
         if (dead == true)
         {
-            transform.position = checkPos;
+            transform.position = startPos;
 
             dead = false;
         }
@@ -333,13 +336,8 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Checkpoint"))
         {
             checkPos = transform.position;
+            startPos = checkPos;
         }
-        if (other.CompareTag("Crystal") && ammo != maxAmmo)
-        {
-            ammo = ammo + 1;
-            other.gameObject.SetActive(false);
-        }
-
         if (other.CompareTag("Key"))
         {
             KeyScript.keys++;

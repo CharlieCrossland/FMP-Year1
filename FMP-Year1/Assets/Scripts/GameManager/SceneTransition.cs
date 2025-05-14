@@ -39,6 +39,11 @@ public class SceneTransition : MonoBehaviour
             StartCoroutine(MainMenu());
     }
 
+    public void dead()
+    {
+        StartCoroutine(Death());
+    }
+
     IEnumerator LoadLevel()
     {
         transitionAnim.SetTrigger("End");
@@ -52,6 +57,14 @@ public class SceneTransition : MonoBehaviour
         transitionAnim.SetTrigger("End");
         yield return new WaitForSeconds(1);
         SceneManager.LoadSceneAsync("MainMenu");
+        transitionAnim.SetTrigger("Start");
+    }
+
+    IEnumerator Death()
+    {
+        transitionAnim.SetTrigger("End");
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         transitionAnim.SetTrigger("Start");
     }
 }

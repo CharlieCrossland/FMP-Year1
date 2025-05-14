@@ -807,7 +807,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!114 &647525306006574695
 MonoBehaviour:
@@ -925,7 +925,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.48179626, y: 0.815898}
+  m_Size: {x: 0.39846367, y: 0.7203591}
   m_EdgeRadius: 0
 --- !u!114 &5863471347642958044
 MonoBehaviour:
