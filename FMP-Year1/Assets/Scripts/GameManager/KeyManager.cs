@@ -7,12 +7,6 @@ public class KeyManager : MonoBehaviour
     public int keys;
     public GameObject keyVis;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        // keyVis = GameObject.Find("keyVis");
-    }
-
     // Update is called once per frame
     void Update()
     {

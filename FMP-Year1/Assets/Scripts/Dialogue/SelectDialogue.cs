@@ -62,7 +62,7 @@ public class SelectDialogue : MonoBehaviour
     {
         foreach (char c in lines[index].ToCharArray())
         {
-            textComp.text += c;
+            // textComp.text += c;
             yield return new WaitForSeconds(textSpeed);
         }
     }

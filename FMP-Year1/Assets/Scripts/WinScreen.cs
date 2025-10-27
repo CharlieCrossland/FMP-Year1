@@ -11,12 +11,6 @@ public class WinScreen : MonoBehaviour
         Cursor.visible = true;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Return()
     {
         SceneManager.LoadScene("MainMenu");
