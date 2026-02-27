@@ -123,7 +123,7 @@ public class PlayerController : MonoBehaviour
                 calculateDistance = false;         
             }
             
-            rb.velocity = throwVector;
+            rb.linearVelocity = throwVector;
 
             if (TimeOnS <= 0)
             {
@@ -148,14 +148,14 @@ public class PlayerController : MonoBehaviour
     {
         if (coyoteTimeCounter > 0f && jumpBufferCounter > 0f)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
 
             jumpBufferCounter = 0f;
         }
 
-        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
+        if (Input.GetButtonUp("Jump") && rb.linearVelocity.y > 0f)
         {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y * 0.5f);
 
             coyoteTimeCounter = 0f;
         }
@@ -292,7 +292,7 @@ public class PlayerController : MonoBehaviour
     void Movement()
     {
         inputs = Input.GetAxisRaw("Horizontal");
-        rb.velocity = new UnityEngine.Vector2(inputs * moveSpeed, rb.velocity.y);
+        rb.linearVelocity = new UnityEngine.Vector2(inputs * moveSpeed, rb.linearVelocity.y);
 
         hit = Physics2D.Raycast(transform.position, -transform.up, groundDistance, layerMask);
         Debug.DrawRay(transform.position, -transform.up * groundDistance, Color.yellow);   

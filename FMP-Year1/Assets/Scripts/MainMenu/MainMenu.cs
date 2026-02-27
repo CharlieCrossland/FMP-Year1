@@ -1,9 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
@@ -14,7 +10,9 @@ public class MainMenu : MonoBehaviour
 
     public void OnPlay()
     {
-        SceneTransition.instance.NextLevel(); // uses scene transition to next level
+        // SceneTransition.instance.NextLevel(); // uses scene transition to next level
+
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void OnExit()

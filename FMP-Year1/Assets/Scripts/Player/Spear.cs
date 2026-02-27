@@ -28,7 +28,7 @@ public class Spear : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<Rigidbody2D>().velocity = throwVector;
+        GetComponent<Rigidbody2D>().linearVelocity = throwVector;
     }
 
     void GetSP() // finds where mouse is and places vector sp in pos

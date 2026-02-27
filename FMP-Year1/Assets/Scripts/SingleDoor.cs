@@ -24,7 +24,7 @@ public class SingleDoor : MonoBehaviour
     {
             if (Input.GetKeyDown(KeyCode.E) && mScript.keys == 1 && canEnter == true)
             {
-                SceneTransition.instance.NextLevel(); // moves onto next level
+                SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1); // moves onto next level
                 mScript.keys--; // removes the key used
             }
             else if (Input.GetKeyDown(KeyCode.E) && mScript.keys == 0 && canEnter == true)

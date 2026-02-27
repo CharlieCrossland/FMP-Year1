@@ -7,18 +7,12 @@ using UnityEngine.SceneManagement;
 public class SceneTransition : MonoBehaviour
 {
     public static SceneTransition instance;
-    [SerializeField] Animator transitionAnim;
-
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-    private void OnRuntimeInitialization()
-    {
-        instance = this;
-    }
-
- 
+    [SerializeField] private Animator transitionAnim;
 
     private void Awake()
     {
+        instance = this;
+
         if (instance == null)
         {
             DontDestroyOnLoad(gameObject);
@@ -31,7 +25,7 @@ public class SceneTransition : MonoBehaviour
 
     public void NextLevel()
     {
-            StartCoroutine(LoadLevel());
+        StartCoroutine(LoadLevel());
     }
     
     public void LoadMainMenu()
